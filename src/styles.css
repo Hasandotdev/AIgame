@@ -1138,8 +1138,9 @@ select.text-input {
 /* Cross Match */
 .cross-grid {
   display: grid;
-  gap: 8px;
+  gap: 7px;
   align-items: stretch;
+  max-width: 400px;
 }
 
 .cross-contents {
@@ -1170,11 +1171,12 @@ select.text-input {
 
 .cross-cell {
   aspect-ratio: 1;
+  min-width: 0;
   border-radius: 12px;
   border: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.05);
   color: var(--text);
-  font-size: clamp(16px, 3.5vw, 22px);
+  font-size: clamp(15px, 3vw, 20px);
   font-weight: 700;
   font-variant-numeric: tabular-nums;
   transition: 0.12s;
