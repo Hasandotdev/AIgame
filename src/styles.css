@@ -993,3 +993,225 @@ select.text-input {
   }
 }
 
+
+/* ---------- Mini games ---------- */
+.sudoku-board {
+  display: grid;
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+  gap: 2px;
+  background: var(--line);
+  border: 2px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  max-width: 470px;
+  margin: 16px 0;
+}
+
+.sudoku-cell {
+  aspect-ratio: 1;
+  background: #0b1128;
+  border: none;
+  color: var(--text);
+  font-size: clamp(15px, 3.4vw, 22px);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  transition: background 0.1s;
+}
+
+.sudoku-cell.given {
+  color: var(--accent-2);
+  background: #0e1533;
+  cursor: default;
+}
+
+.sudoku-cell.peer {
+  background: #141d47;
+}
+
+.sudoku-cell.same {
+  background: rgba(53, 224, 212, 0.22);
+}
+
+.sudoku-cell.sel {
+  background: rgba(109, 139, 255, 0.45);
+}
+
+.sudoku-cell.conflict {
+  color: var(--bad);
+  background: rgba(255, 107, 129, 0.22);
+}
+
+.sudoku-cell.box-r {
+  box-shadow: inset -2px 0 0 rgba(255, 255, 255, 0.28);
+}
+
+.sudoku-cell.box-b {
+  box-shadow: inset 0 -2px 0 rgba(255, 255, 255, 0.28);
+}
+
+.sudoku-cell.box-r.box-b {
+  box-shadow: inset -2px -2px 0 rgba(255, 255, 255, 0.28);
+}
+
+.sudoku-cell:not(.given):hover {
+  background: #16204d;
+}
+
+.keypad {
+  max-width: 470px;
+}
+
+/* Number Match */
+.nm-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.nm-tile {
+  aspect-ratio: 1;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+  font-size: clamp(18px, 4vw, 26px);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  transition: 0.12s;
+}
+
+.nm-tile:hover:not(:disabled) {
+  border-color: rgba(109, 139, 255, 0.55);
+}
+
+.nm-tile.picked {
+  background: rgba(53, 224, 212, 0.25);
+  border-color: var(--accent-2);
+  transform: scale(1.05);
+}
+
+.nm-tile.wrong {
+  background: rgba(255, 107, 129, 0.3);
+  border-color: var(--bad);
+}
+
+.nm-tile.gone {
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+/* Number Merge */
+.merge-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 12px;
+  max-width: 440px;
+  width: 100%;
+  touch-action: none;
+}
+
+.merge-tile {
+  aspect-ratio: 1;
+  border-radius: 11px;
+  background: rgba(255, 255, 255, 0.045);
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  font-size: 32px;
+  color: #fff;
+  font-variant-numeric: tabular-nums;
+}
+
+.merge-controls {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* Cross Match */
+.cross-grid {
+  display: grid;
+  gap: 8px;
+  align-items: stretch;
+}
+
+.cross-contents {
+  display: contents;
+}
+
+.cross-corner,
+.cross-rule {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--muted);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px dashed var(--line);
+  border-radius: 10px;
+  padding: 6px 4px;
+  min-height: 40px;
+}
+
+.cross-rule {
+  color: var(--accent-2);
+  border-style: solid;
+  border-color: rgba(53, 224, 212, 0.3);
+  background: rgba(53, 224, 212, 0.07);
+}
+
+.cross-cell {
+  aspect-ratio: 1;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+  font-size: clamp(16px, 3.5vw, 22px);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  transition: 0.12s;
+}
+
+.cross-cell:hover:not(.found) {
+  border-color: rgba(109, 139, 255, 0.55);
+}
+
+.cross-cell.found {
+  background: rgba(61, 220, 151, 0.28);
+  border-color: var(--good);
+  color: var(--good);
+  cursor: default;
+}
+
+.cross-cell.hit {
+  animation: hitpop 0.35s;
+}
+
+.cross-cell.miss {
+  animation: missflash 0.35s;
+}
+
+@keyframes hitpop {
+  50% {
+    transform: scale(1.12);
+    background: rgba(61, 220, 151, 0.55);
+  }
+}
+
+@keyframes missflash {
+  25%, 75% {
+    transform: translateX(-5px);
+    background: rgba(255, 107, 129, 0.5);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+}
