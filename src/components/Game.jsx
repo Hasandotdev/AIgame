@@ -355,7 +355,7 @@ export default function Game({ game, initialTopic }) {
           </div>
           {!hasKey && (
             <p className="muted small">
-              Tip: add your Groq API key in Settings to unlock AI-generated questions, explanations and coaching.
+              Tip: AI-generated questions, explanations and coaching are off in this build.
             </p>
           )}
         </div>

@@ -270,7 +270,7 @@ export default function DailyChallenge({ game }) {
       <button className="btn btn-primary btn-lg" onClick={start}>
         Start today's challenge
       </button>
-      {!hasKey && <p className="muted small">With a Groq API key the AI writes a fully personalized set; otherwise it uses your local adaptive generator.</p>}
+      {!hasKey && <p className="muted small">Using your local adaptive generator for today's challenge.</p>}
     </div>
   );
 }

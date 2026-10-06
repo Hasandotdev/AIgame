@@ -135,7 +135,7 @@ export default function Puzzles({ game }) {
 
         {hint && <div className="hint-box">{hint}</div>}
         {note && <div className="note-box">{note}</div>}
-        {!hasKey && <p className="muted small">Add a Groq API key in Settings for AI-generated puzzles.</p>}
+        {!hasKey && <p className="muted small">AI puzzles are off — the app owner must configure the Groq API key.</p>}
         {loading && <Spinner text="The AI is crafting tricky puzzles…" />}
       </div>
 

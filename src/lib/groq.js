@@ -49,7 +49,7 @@ async function serverRequest(payload, signal) {
 }
 
 export async function groqChat(apiKey, model, messages, opts = {}) {
-  if (!apiKey) throw new Error('No API key set. Add your Groq key in Settings or in .env.');
+  if (!apiKey) throw new Error('No API key set. The app owner must configure it in .env.');
   const { json = false, temperature = 0.6, maxTokens = 1400, timeout = 25000 } = opts;
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeout);

@@ -79,7 +79,7 @@ export default function TutorPanel({ question, given, correct, apiKey, model, on
         <h4 className="section-label">AI explanation</h4>
         {!apiKey ? (
           <p className="muted small">
-            Add a Groq API key in Settings to get natural-language explanations and hints from the AI.
+            AI explanations are off — the app owner must configure the Groq API key.
           </p>
         ) : loading ? (
           <Spinner text="AI is preparing an explanation…" />

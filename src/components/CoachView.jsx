@@ -58,7 +58,7 @@ export default function CoachView({ game, onPractice }) {
           <div className="row">
             <button className="btn btn-ghost btn-sm" onClick={copyCoaches}>Hear it</button>
             <button className="btn btn-primary btn-sm" onClick={refreshCoach} disabled={!hasKey || coach.loading}>
-              {coach.loading ? 'Analyzing…' : hasKey ? 'Fresh AI analysis' : 'Add API key for AI'}
+              {coach.loading ? 'Analyzing…' : hasKey ? 'Fresh AI analysis' : 'AI off'}
             </button>
           </div>
         </div>
